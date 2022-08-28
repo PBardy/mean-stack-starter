@@ -1,0 +1,2 @@
+2022-08-28 10:48:49 error: [POST] /auth/sign-in >> StatusCode:: 500, Message:: connect ECONNREFUSED 127.0.0.1:3306
+2022-08-28 10:48:49 error: [POST] /auth/sign-up >> StatusCode:: 500, Message:: connect ECONNREFUSED 127.0.0.1:3306

@@ -1,69 +1,56 @@
-import { hash, compare } from 'bcrypt';
+import { SECRET_KEY } from '@/config';
+import { SignInRequestDto } from '@/dtos/auth/SignInRequest.dto';
+import { SignOutRequestDto } from '@/dtos/auth/SignOutRequest.dto';
+import { SignUpRequestDto } from '@/dtos/auth/SignUpRequest.dto';
+import { CreateUserDto } from '@/dtos/user/create-user.dto';
+import { DataStoredInToken, TokenData } from '@/interfaces/auth.interface';
+import { User } from '@/models/user.model';
+import { assertIsNotEmpty, assertModelDoesNotExist, assertModelExists } from '@/utils/asserts';
 import { sign } from 'jsonwebtoken';
-import { SECRET_KEY } from '@config';
-import { CreateUserDto } from '@dtos/users.dto';
-import { HttpException } from '@exceptions/HttpException';
-import { DataStoredInToken, TokenData } from '@interfaces/auth.interface';
-import { User } from '@interfaces/users.interface';
-import { Users } from '@models/users.model';
-import { isEmpty } from '@utils/util';
+import { BaseService } from './base.service';
+import { UserService } from './user.service';
 
-class AuthService {
-  public async signup(userData: CreateUserDto): Promise<User> {
-    if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
+export class AuthService extends BaseService {
+  protected userService = new UserService();
 
-    const findUser: Users = await Users.query().select().from('users').where('email', '=', userData.email).first();
-    if (findUser) throw new HttpException(409, `This email ${userData.email} already exists`);
-
-    const hashedPassword = await hash(userData.password, 10);
-    const createUserData: User = await Users.query()
-      .insert({ ...userData, password: hashedPassword })
-      .into('users');
-
-    return createUserData;
-  }
-
-  public async login(userData: CreateUserDto): Promise<{ cookie: string; findUser: User }> {
-    if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
-
-    const findUser: User = await Users.query().select().from('users').where('email', '=', userData.email).first();
-    if (!findUser) throw new HttpException(409, `This email ${userData.email} was not found`);
-
-    const isPasswordMatching: boolean = await compare(userData.password, findUser.password);
-    if (!isPasswordMatching) throw new HttpException(409, "Password is not matching");
-
-    const tokenData = this.createToken(findUser);
-    const cookie = this.createCookie(tokenData);
-
-    return { cookie, findUser };
-  }
-
-  public async logout(userData: User): Promise<User> {
-    if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
-
-    const findUser: User = await Users.query()
-      .select()
-      .from('users')
-      .where('email', '=', userData.email)
-      .andWhere('password', '=', userData.password)
-      .first();
-
-    if (!findUser) throw new HttpException(409, "User doesn't exist");
-
-    return findUser;
-  }
-
-  public createToken(user: User): TokenData {
-    const dataStoredInToken: DataStoredInToken = { id: user.id };
-    const secretKey: string = SECRET_KEY;
+  public createToken(user: User): string {
     const expiresIn: number = 60 * 60;
+    const secretKey: string = SECRET_KEY;
+    const dataStoredInToken: DataStoredInToken = { id: user.id };
 
-    return { expiresIn, token: sign(dataStoredInToken, secretKey, { expiresIn }) };
+    return sign(dataStoredInToken, secretKey, { expiresIn });
   }
 
   public createCookie(tokenData: TokenData): string {
     return `Authorization=${tokenData.token}; HttpOnly; Max-Age=${tokenData.expiresIn};`;
   }
-}
 
-export default AuthService;
+  public async signIn(dto: SignInRequestDto) {
+    await assertIsNotEmpty(dto);
+
+    const user = await this.userService.getByEmail(dto.email);
+    await assertModelExists(user);
+
+    const token = this.createToken(user);
+
+    return { user, token };
+  }
+
+  public async signUp(dto: SignUpRequestDto) {
+    await assertIsNotEmpty(dto);
+
+    const userByEmail = await this.userService.getByEmail(dto.email);
+    await assertModelDoesNotExist(userByEmail);
+
+    const user = await this.userService.createOne(CreateUserDto.fromSignUpRequest(dto));
+    const token = this.createToken(user);
+
+    return { user, token };
+  }
+
+  public async signOut(dto: SignOutRequestDto): Promise<boolean> {
+    await assertIsNotEmpty(dto);
+
+    return true;
+  }
+}

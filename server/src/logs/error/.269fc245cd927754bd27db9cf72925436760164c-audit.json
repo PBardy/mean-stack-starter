@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\Programming\\Angular\\mean-starter\\server\\src\\logs\\error\\.269fc245cd927754bd27db9cf72925436760164c-audit.json",
+    "files": [
+        {
+            "date": 1661596229969,
+            "name": "D:\\Programming\\Angular\\mean-starter\\server\\src\\logs\\error\\2022-08-27.log",
+            "hash": "ae84ded7a26c8037f71dc49002feeb00ac3c527e8b027b86cb0605d88f24965c"
+        },
+        {
+            "date": 1661676364808,
+            "name": "D:\\Programming\\Angular\\mean-starter\\server\\src\\logs\\error\\2022-08-28.log",
+            "hash": "f5edb1bdcc9cf1a20aaffc337aba3d6819010ad87baa59c76814f3d39282d34c"
+        }
+    ],
+    "hashType": "sha256"
+}

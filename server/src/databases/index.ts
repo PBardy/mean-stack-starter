@@ -1,5 +1,6 @@
 import Knex from 'knex';
 import { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE } from '@config';
+import { knexSnakeCaseMappers } from 'objection';
 
 const dbConnection = {
   client: 'mysql',
@@ -16,6 +17,8 @@ const dbConnection = {
     min: 2,
     max: 10,
   },
+
+  ...knexSnakeCaseMappers(),
 };
 
 export default Knex(dbConnection);

@@ -1,0 +1,70 @@
+2022-08-27 16:03:34 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/permission.service.ts[0m:[93m49[0m:[93m10[0m - [91merror[0m[90m TS1068: [0mUnexpected token. A constructor, method, accessor, or property was expected.
+
+[7m49[0m   return;{}
+[7m  [0m [91m         ~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m  ~~~~~~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m10[0m - [91merror[0m[90m TS1434: [0mUnexpected keyword or identifier.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m         ~~~~~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m                                    ~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m51[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m                                                  ~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m60[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m                                                           ~[0m
+[96msrc/services/permission.service.ts[0m:[93m52[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m52[0m }
+[7m  [0m [91m~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/permission.service.ts[0m:[93m49[0m:[93m10[0m - [91merror[0m[90m TS1068: [0mUnexpected token. A constructor, method, accessor, or property was expected.
+
+[7m49[0m   return;{}
+[7m  [0m [91m         ~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m  ~~~~~~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m10[0m - [91merror[0m[90m TS1434: [0mUnexpected keyword or identifier.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m         ~~~~~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m                                    ~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m51[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m                                                  ~[0m
+[96msrc/services/permission.service.ts[0m:[93m51[0m:[93m60[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m51[0m   public async forceDeleteOne(userId: number, uuid: string): Promise<Permission> {}
+[7m  [0m [91m                                                           ~[0m
+[96msrc/services/permission.service.ts[0m:[93m52[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m52[0m }
+[7m  [0m [91m~[0m
+
+    at createTSError (D:\Programming\Angular\mean-starter\server\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\Programming\Angular\mean-starter\server\node_modules\ts-node\src\index.ts:863:19)
+    at D:\Programming\Angular\mean-starter\server\node_modules\ts-node\src\index.ts:1379:34
+    at Object.compile (D:\Programming\Angular\mean-starter\server\node_modules\ts-node\src\index.ts:1458:13)
+    at Module.m._compile (D:\Programming\Angular\mean-starter\server\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Programming\Angular\mean-starter\server\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:933:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:774:14)
+    at Module.require (internal/modules/cjs/loader.js:957:19)

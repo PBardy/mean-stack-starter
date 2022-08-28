@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es2017",
+    "types": ["jest", "node"],
     "lib": ["es2017", "esnext.asynciterable"],
     "typeRoots": ["node_modules/@types"],
     "allowSyntheticDefaultImports": true,
@@ -26,6 +27,7 @@
       "@controllers/*": ["controllers/*"],
       "@databases": ["databases"],
       "@dtos/*": ["dtos/*"],
+      "@enums/*": ["enums/*"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],
       "@middlewares/*": ["middlewares/*"],
@@ -36,5 +38,5 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.json", ".env"],
-  "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
+  "exclude": ["node_modules", "src/http", "src/logs"]
 }

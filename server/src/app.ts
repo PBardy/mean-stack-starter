@@ -14,7 +14,7 @@ import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
 
-class App {
+export class App {
   public app: express.Application;
   public env: string;
   public port: string | number;
@@ -85,5 +85,3 @@ class App {
     this.app.use(errorMiddleware);
   }
 }
-
-export default App;
