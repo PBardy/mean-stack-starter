@@ -1,193 +1,35 @@
-2022-09-01 09:30:39 info: =================================
-2022-09-01 09:30:39 info: ======= ENV: development =======
-2022-09-01 09:30:39 info: 🚀 App listening on the port 3000
-2022-09-01 09:30:39 info: =================================
-2022-09-01 09:30:44 debug: {"id":2,"uuid":"987ca1d0-4e18-401f-934d-bc2aaf14f6e7","email":"user@gmail.com","password":"$2b$10$zQ1V6cFs39KwP65mid6zqeLj8H10vQuqA/FeS/OAoeKxwsgewM.e6","fullName":"Normal User","roleId":1,"createdAt":"2022-08-29T15:42:52.000Z","updatedAt":"2022-08-29T15:42:52.000Z","deletedAt":null,"role":{"id":1,"uuid":"d0647da5-d5dd-4d8d-9acd-3b159bf3c9f6","tag":"USER","label":"User","description":"A user","protected":1,"createdAt":"2022-08-29T15:42:40.000Z","updatedAt":"2022-08-29T15:42:40.000Z","deletedAt":"2022-08-29T15:42:40.000Z"}}
-2022-09-01 09:30:44 info: [0mPOST /api/auth/sign-in [32m200[0m 274.607 ms - 318[0m
-2022-09-01 09:32:28 info: =================================
-2022-09-01 09:32:28 info: ======= ENV: development =======
-2022-09-01 09:32:28 info: 🚀 App listening on the port 3000
-2022-09-01 09:32:28 info: =================================
-2022-09-01 09:33:00 info: =================================
-2022-09-01 09:33:00 info: ======= ENV: development =======
-2022-09-01 09:33:00 info: 🚀 App listening on the port 3000
-2022-09-01 09:33:00 info: =================================
-2022-09-01 09:33:23 debug: {"id":2,"uuid":"987ca1d0-4e18-401f-934d-bc2aaf14f6e7","email":"user@gmail.com","password":"$2b$10$zQ1V6cFs39KwP65mid6zqeLj8H10vQuqA/FeS/OAoeKxwsgewM.e6","fullName":"Normal User","roleId":1,"createdAt":"2022-08-29T15:42:52.000Z","updatedAt":"2022-08-29T15:42:52.000Z","deletedAt":null,"role":{"id":1,"uuid":"d0647da5-d5dd-4d8d-9acd-3b159bf3c9f6","tag":"USER","label":"User","description":"A user","protected":1,"createdAt":"2022-08-29T15:42:40.000Z","updatedAt":"2022-08-29T15:42:40.000Z","deletedAt":"2022-08-29T15:42:40.000Z"}}
-2022-09-01 09:33:23 info: [0mPOST /api/auth/sign-in [32m200[0m 236.385 ms - 369[0m
-2022-09-01 09:38:04 info: =================================
-2022-09-01 09:38:04 info: ======= ENV: development =======
-2022-09-01 09:38:04 info: 🚀 App listening on the port 3000
-2022-09-01 09:38:04 info: =================================
-2022-09-01 09:38:07 info: =================================
-2022-09-01 09:38:07 info: ======= ENV: development =======
-2022-09-01 09:38:07 info: 🚀 App listening on the port 3000
-2022-09-01 09:38:07 info: =================================
-2022-09-01 09:38:25 info: =================================
-2022-09-01 09:38:25 info: ======= ENV: development =======
-2022-09-01 09:38:25 info: 🚀 App listening on the port 3000
-2022-09-01 09:38:25 info: =================================
-2022-09-01 09:38:33 info: =================================
-2022-09-01 09:38:33 info: ======= ENV: development =======
-2022-09-01 09:38:33 info: 🚀 App listening on the port 3000
-2022-09-01 09:38:33 info: =================================
-2022-09-01 09:38:40 info: =================================
-2022-09-01 09:38:40 info: ======= ENV: development =======
-2022-09-01 09:38:40 info: 🚀 App listening on the port 3000
-2022-09-01 09:38:40 info: =================================
-2022-09-01 09:39:22 info: =================================
-2022-09-01 09:39:22 info: ======= ENV: development =======
-2022-09-01 09:39:22 info: 🚀 App listening on the port 3000
-2022-09-01 09:39:22 info: =================================
-2022-09-01 09:40:48 info: =================================
-2022-09-01 09:40:48 info: ======= ENV: development =======
-2022-09-01 09:40:48 info: 🚀 App listening on the port 3000
-2022-09-01 09:40:48 info: =================================
-2022-09-01 09:40:51 info: =================================
-2022-09-01 09:40:51 info: ======= ENV: development =======
-2022-09-01 09:40:51 info: 🚀 App listening on the port 3000
-2022-09-01 09:40:51 info: =================================
-2022-09-01 09:41:11 info: =================================
-2022-09-01 09:41:11 info: ======= ENV: development =======
-2022-09-01 09:41:11 info: 🚀 App listening on the port 3000
-2022-09-01 09:41:11 info: =================================
-2022-09-01 09:41:18 info: =================================
-2022-09-01 09:41:18 info: ======= ENV: development =======
-2022-09-01 09:41:18 info: 🚀 App listening on the port 3000
-2022-09-01 09:41:18 info: =================================
-2022-09-01 09:48:17 info: =================================
-2022-09-01 09:48:17 info: ======= ENV: development =======
-2022-09-01 09:48:17 info: 🚀 App listening on the port 3000
-2022-09-01 09:48:17 info: =================================
-2022-09-01 09:48:21 info: =================================
-2022-09-01 09:48:21 info: ======= ENV: development =======
-2022-09-01 09:48:21 info: 🚀 App listening on the port 3000
-2022-09-01 09:48:21 info: =================================
-2022-09-01 09:48:33 info: =================================
-2022-09-01 09:48:33 info: ======= ENV: development =======
-2022-09-01 09:48:33 info: 🚀 App listening on the port 3000
-2022-09-01 09:48:33 info: =================================
-2022-09-01 09:50:39 info: =================================
-2022-09-01 09:50:39 info: ======= ENV: development =======
-2022-09-01 09:50:39 info: 🚀 App listening on the port 3000
-2022-09-01 09:50:39 info: =================================
-2022-09-01 09:51:18 info: =================================
-2022-09-01 09:51:18 info: ======= ENV: development =======
-2022-09-01 09:51:18 info: 🚀 App listening on the port 3000
-2022-09-01 09:51:18 info: =================================
-2022-09-01 09:51:27 info: =================================
-2022-09-01 09:51:27 info: ======= ENV: development =======
-2022-09-01 09:51:27 info: 🚀 App listening on the port 3000
-2022-09-01 09:51:27 info: =================================
-2022-09-01 09:51:34 info: =================================
-2022-09-01 09:51:34 info: ======= ENV: development =======
-2022-09-01 09:51:34 info: 🚀 App listening on the port 3000
-2022-09-01 09:51:34 info: =================================
-2022-09-01 09:51:48 info: =================================
-2022-09-01 09:51:48 info: ======= ENV: development =======
-2022-09-01 09:51:48 info: 🚀 App listening on the port 3000
-2022-09-01 09:51:48 info: =================================
-2022-09-01 09:52:00 info: =================================
-2022-09-01 09:52:00 info: ======= ENV: development =======
-2022-09-01 09:52:00 info: 🚀 App listening on the port 3000
-2022-09-01 09:52:00 info: =================================
-2022-09-01 09:52:04 info: =================================
-2022-09-01 09:52:04 info: ======= ENV: development =======
-2022-09-01 09:52:04 info: 🚀 App listening on the port 3000
-2022-09-01 09:52:04 info: =================================
-2022-09-01 09:52:11 info: =================================
-2022-09-01 09:52:11 info: ======= ENV: development =======
-2022-09-01 09:52:11 info: 🚀 App listening on the port 3000
-2022-09-01 09:52:11 info: =================================
-2022-09-01 09:52:21 info: =================================
-2022-09-01 09:52:21 info: ======= ENV: development =======
-2022-09-01 09:52:21 info: 🚀 App listening on the port 3000
-2022-09-01 09:52:21 info: =================================
-2022-09-01 09:52:24 info: =================================
-2022-09-01 09:52:24 info: ======= ENV: development =======
-2022-09-01 09:52:24 info: 🚀 App listening on the port 3000
-2022-09-01 09:52:24 info: =================================
-2022-09-01 09:52:30 info: =================================
-2022-09-01 09:52:30 info: ======= ENV: development =======
-2022-09-01 09:52:30 info: 🚀 App listening on the port 3000
-2022-09-01 09:52:30 info: =================================
-2022-09-01 09:53:05 info: =================================
-2022-09-01 09:53:05 info: ======= ENV: development =======
-2022-09-01 09:53:05 info: 🚀 App listening on the port 3000
-2022-09-01 09:53:05 info: =================================
-2022-09-01 09:53:38 info: =================================
-2022-09-01 09:53:38 info: ======= ENV: development =======
-2022-09-01 09:53:38 info: 🚀 App listening on the port 3000
-2022-09-01 09:53:38 info: =================================
-2022-09-01 09:53:43 info: =================================
-2022-09-01 09:53:43 info: ======= ENV: development =======
-2022-09-01 09:53:43 info: 🚀 App listening on the port 3000
-2022-09-01 09:53:43 info: =================================
-2022-09-01 09:54:59 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:54:59 info: [0mPOST /api/auth/sign-up [31m500[0m 163.928 ms - 101[0m
-2022-09-01 09:54:59 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:54:59 info: [0mPOST /api/auth/sign-in [31m500[0m 18.648 ms - 101[0m
-2022-09-01 09:55:00 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 09:55:00 info: [0mGET /users [33m404[0m 11.498 ms - 42[0m
-2022-09-01 09:55:31 info: =================================
-2022-09-01 09:55:31 info: ======= ENV: development =======
-2022-09-01 09:55:31 info: 🚀 App listening on the port 3000
-2022-09-01 09:55:31 info: =================================
-2022-09-01 09:55:42 info: =================================
-2022-09-01 09:55:42 info: ======= ENV: development =======
-2022-09-01 09:55:42 info: 🚀 App listening on the port 3000
-2022-09-01 09:55:42 info: =================================
-2022-09-01 09:55:50 info: =================================
-2022-09-01 09:55:50 info: ======= ENV: development =======
-2022-09-01 09:55:50 info: 🚀 App listening on the port 3000
-2022-09-01 09:55:50 info: =================================
-2022-09-01 09:56:19 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:56:19 info: [0mPOST /api/auth/sign-up [31m500[0m 165.535 ms - 101[0m
-2022-09-01 09:56:20 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:56:20 info: [0mPOST /api/auth/sign-in [31m500[0m 20.720 ms - 101[0m
-2022-09-01 09:56:21 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 09:56:21 info: [0mGET /users [33m404[0m 11.890 ms - 42[0m
-2022-09-01 09:56:47 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:56:47 info: [0mPOST /api/auth/sign-up [31m500[0m 193.470 ms - 101[0m
-2022-09-01 09:56:47 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:56:47 info: [0mPOST /api/auth/sign-in [31m500[0m 20.358 ms - 101[0m
-2022-09-01 09:56:48 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 09:56:48 info: [0mGET /users [33m404[0m 15.926 ms - 42[0m
-2022-09-01 09:58:22 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:58:22 info: [0mPOST /api/auth/sign-up [31m500[0m 190.721 ms - 101[0m
-2022-09-01 09:58:22 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:58:22 info: [0mPOST /api/auth/sign-in [31m500[0m 19.604 ms - 101[0m
-2022-09-01 09:58:23 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 09:58:23 info: [0mGET /users [33m404[0m 13.200 ms - 42[0m
-2022-09-01 09:59:13 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:59:13 info: [0mPOST /api/auth/sign-up [31m500[0m 190.129 ms - 101[0m
-2022-09-01 09:59:13 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:59:13 info: [0mPOST /api/auth/sign-in [31m500[0m 18.759 ms - 101[0m
-2022-09-01 09:59:14 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 09:59:14 info: [0mGET /users [33m404[0m 12.112 ms - 42[0m
-2022-09-01 10:02:12 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:02:12 info: [0mPOST /api/auth/sign-up [31m500[0m 192.063 ms - 101[0m
-2022-09-01 10:02:12 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:02:12 info: [0mPOST /api/auth/sign-in [31m500[0m 18.531 ms - 101[0m
-2022-09-01 10:02:13 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 10:02:13 info: [0mGET /users [33m404[0m 12.469 ms - 42[0m
-2022-09-01 10:03:30 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:03:30 info: [0mPOST /api/auth/sign-up [31m500[0m 172.055 ms - 101[0m
-2022-09-01 10:03:30 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:03:30 info: [0mPOST /api/auth/sign-in [31m500[0m 21.078 ms - 101[0m
-2022-09-01 10:03:32 error: [GET] /api/users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 10:03:32 info: [0mGET /api/users [33m404[0m 11.886 ms - 42[0m
-2022-09-01 10:06:28 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:06:28 info: [0mPOST /api/auth/sign-up [31m500[0m 171.179 ms - 101[0m
-2022-09-01 10:06:28 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:06:28 info: [0mPOST /api/auth/sign-in [31m500[0m 17.473 ms - 101[0m
-2022-09-01 10:07:20 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: undefined passed as an item in argument #1 for 'whereInComposite' operation. Call skipUndefined() method to ignore the undefined values.
-2022-09-01 10:07:20 info: [0mPOST /api/auth/sign-up [31m500[0m 1690.372 ms - 150[0m
-2022-09-01 10:07:20 debug: {"id":3,"uuid":"b23f0807-2521-4190-8a7e-68bf10d350ca","email":"test@gmail.com","password":"$2b$10$cyCvz8hT1Yqp8xK1vI3aseqfKQ38MP6X4exTHj2vEoLAousVEJouO","fullName":"John Doe","roleId":1,"createdAt":"2022-09-01T09:07:20.000Z","updatedAt":"2022-09-01T09:07:20.000Z","deletedAt":null,"role":{"id":1,"uuid":"d0647da5-d5dd-4d8d-9acd-3b159bf3c9f6","tag":"USER","label":"User","description":"A user","protected":1,"createdAt":"2022-08-29T15:42:40.000Z","updatedAt":"2022-08-29T15:42:40.000Z","deletedAt":"2022-08-29T15:42:40.000Z"}}
-2022-09-01 10:07:20 info: [0mPOST /api/auth/sign-in [32m200[0m 70.922 ms - 353[0m
-2022-09-01 10:11:07 error: [POST] /api/auth/sign-up >> StatusCode:: 409, Message:: Model already exists
-2022-09-01 10:11:07 info: [0mPOST /api/auth/sign-up [33m409[0m 231.779 ms - 34[0m
-2022-09-01 10:11:07 debug: {"id":3,"uuid":"b23f0807-2521-4190-8a7e-68bf10d350ca","email":"test@gmail.com","password":"$2b$10$cyCvz8hT1Yqp8xK1vI3aseqfKQ38MP6X4exTHj2vEoLAousVEJouO","fullName":"John Doe","roleId":1,"createdAt":"2022-09-01T09:07:20.000Z","updatedAt":"2022-09-01T09:07:20.000Z","deletedAt":null,"role":{"id":1,"uuid":"d0647da5-d5dd-4d8d-9acd-3b159bf3c9f6","tag":"USER","label":"User","description":"A user","protected":1,"createdAt":"2022-08-29T15:42:40.000Z","updatedAt":"2022-08-29T15:42:40.000Z","deletedAt":"2022-08-29T15:42:40.000Z"}}
-2022-09-01 10:11:07 info: [0mPOST /api/auth/sign-in [32m200[0m 72.642 ms - 353[0m
-2022-09-01 10:16:35 info: [0mPOST /api/auth/sign-up [32m200[0m 426.391 ms - 261[0m
-2022-09-01 10:16:35 debug: {"id":4,"uuid":"ac69a099-6b04-465c-a9c4-b4b344e52ad1","email":"test@gmail.com","password":"$2b$10$esmW79lxz6piPkpNa9PVtuFFjywUNj7eVCfUdAdaAj.7UOyagiU0K","fullName":"John Doe","roleId":1,"createdAt":"2022-09-01T09:16:35.000Z","updatedAt":"2022-09-01T09:16:35.000Z","deletedAt":null,"role":{"id":1,"uuid":"d0647da5-d5dd-4d8d-9acd-3b159bf3c9f6","tag":"USER","label":"User","description":"A user","protected":1,"createdAt":"2022-08-29T15:42:40.000Z","updatedAt":"2022-08-29T15:42:40.000Z","deletedAt":"2022-08-29T15:42:40.000Z"}}
-2022-09-01 10:16:35 info: [0mPOST /api/auth/sign-in [32m200[0m 88.963 ms - 353[0m
+2022-09-01 15:35:43 info: =================================
+2022-09-01 15:35:43 info: ======= ENV: development =======
+2022-09-01 15:35:43 info: 🚀 App listening on the port 3000
+2022-09-01 15:35:43 info: =================================
+2022-09-01 15:35:51 info: =================================
+2022-09-01 15:35:51 info: ======= ENV: development =======
+2022-09-01 15:35:51 info: 🚀 App listening on the port 3000
+2022-09-01 15:35:51 info: =================================
+2022-09-01 15:35:59 info: [0mPOST /api/auth/forgot-password [32m204[0m 1698.850 ms - -[0m
+2022-09-01 15:36:16 info: =================================
+2022-09-01 15:36:16 info: ======= ENV: development =======
+2022-09-01 15:36:16 info: 🚀 App listening on the port 3000
+2022-09-01 15:36:16 info: =================================
+2022-09-01 15:36:21 info: =================================
+2022-09-01 15:36:21 info: ======= ENV: development =======
+2022-09-01 15:36:21 info: 🚀 App listening on the port 3000
+2022-09-01 15:36:21 info: =================================
+2022-09-01 15:36:25 info: =================================
+2022-09-01 15:36:25 info: ======= ENV: development =======
+2022-09-01 15:36:25 info: 🚀 App listening on the port 3000
+2022-09-01 15:36:25 info: =================================
+2022-09-01 15:36:58 info: =================================
+2022-09-01 15:36:58 info: ======= ENV: development =======
+2022-09-01 15:36:58 info: 🚀 App listening on the port 3000
+2022-09-01 15:36:58 info: =================================
+2022-09-01 15:36:59 info: [0mPOST /api/auth/forgot-password [32m204[0m 169.930 ms - -[0m
+2022-09-01 15:37:22 info: =================================
+2022-09-01 15:37:22 info: ======= ENV: development =======
+2022-09-01 15:37:22 info: 🚀 App listening on the port 3000
+2022-09-01 15:37:22 info: =================================
+2022-09-01 15:37:23 info: [0mPOST /api/auth/forgot-password [32m204[0m 166.738 ms - -[0m
+2022-09-01 15:38:13 info: =================================
+2022-09-01 15:38:13 info: ======= ENV: development =======
+2022-09-01 15:38:13 info: 🚀 App listening on the port 3000
+2022-09-01 15:38:13 info: =================================

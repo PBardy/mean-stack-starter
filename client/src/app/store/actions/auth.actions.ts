@@ -60,4 +60,9 @@ export namespace AuthActions {
   );
 
   export const refreshSession = createAction('auth/refresh-session');
+
+  export const forgotPassword = createAction(
+    'auth/forgot-password',
+    props<AuthRequests.IForgotPassword>()
+  );
 }

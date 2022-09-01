@@ -1,5 +1,9 @@
 jest.setTimeout(10000);
 
+afterAll(() => {
+  jest.clearAllTimers();
+});
+
 describe('Permission Tests', () => {
   describe('[GET] /permissions', () => {
     it('code: 200, data: an array of permission dtos', done => {

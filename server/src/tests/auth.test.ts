@@ -11,11 +11,12 @@ jest.setTimeout(20000);
 const route = new AuthRoute();
 const app = new App([route]);
 
-/**
- * Wipe the database tables we're going to be using.
- */
 beforeAll(async () => {
   await knex('users').del();
+});
+
+afterAll(() => {
+  jest.clearAllTimers();
 });
 
 describe('Auth Tests', () => {

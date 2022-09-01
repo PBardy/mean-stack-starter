@@ -24,4 +24,8 @@ export namespace AuthRequests {
   }
 
   export interface IRefreshSession {}
+
+  export interface IForgotPassword {
+    email: string;
+  }
 }

@@ -49,13 +49,13 @@ export class AuthController extends BaseController {
     }
   };
 
-  public forgotPassword = async (req: Request, res: Response, next: NextFunction) => {
+  public forgotPassword = async (req: Request, res: Response) => {
     try {
       await this.passwordService.forgotPassword(req.body as ForgotPasswordRequestDto);
-
-      res.status(204).send();
     } catch (err) {
-      next(err);
+      // maybe log potential errors, but never show to client
+    } finally {
+      res.status(204).send();
     }
   };
 }

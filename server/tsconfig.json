@@ -27,6 +27,7 @@
       "@controllers/*": ["controllers/*"],
       "@databases": ["databases"],
       "@dtos/*": ["dtos/*"],
+      "@email/*": ["email/*"],
       "@enums/*": ["enums/*"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\User\\OneDrive - University of Bath\\Documents\\GitHub\\mean-stack-starter\\server\\src\\logs\\debug\\.5de46015eb1b39f659d44e071a4e9736a46cc7f8-audit.json",
+    "files": [
+        {
+            "date": 1662032845146,
+            "name": "C:\\Users\\User\\OneDrive - University of Bath\\Documents\\GitHub\\mean-stack-starter\\server\\src\\logs\\debug\\2022-09-01.log",
+            "hash": "2c81cda42440cdf298fe967680a31788b05f7909af6992f28883c0b643843ec0"
+        }
+    ],
+    "hashType": "sha256"
+}

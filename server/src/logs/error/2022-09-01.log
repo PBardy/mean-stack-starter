@@ -1,13 +1,62 @@
-2022-09-01 09:59:13 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:59:13 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 09:59:14 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 10:02:12 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:02:12 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:02:13 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 10:03:30 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:03:30 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:03:32 error: [GET] /api/users >> StatusCode:: 404, Message:: Authentication token missing
-2022-09-01 10:06:28 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:06:28 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
-2022-09-01 10:07:20 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: undefined passed as an item in argument #1 for 'whereInComposite' operation. Call skipUndefined() method to ignore the undefined values.
-2022-09-01 10:11:07 error: [POST] /api/auth/sign-up >> StatusCode:: 409, Message:: Model already exists
+2022-09-01 15:36:52 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/email.service.ts[0m:[93m37[0m:[93m9[0m - [91merror[0m[90m TS1136: [0mProperty assignment expected.
+
+[7m37[0m         {
+[7m  [0m [91m        ~[0m
+[96msrc/services/email.service.ts[0m:[93m45[0m:[93m7[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m45[0m       },
+[7m  [0m [91m      ~[0m
+[96msrc/services/email.service.ts[0m:[93m45[0m:[93m8[0m - [91merror[0m[90m TS1068: [0mUnexpected token. A constructor, method, accessor, or property was expected.
+
+[7m45[0m       },
+[7m  [0m [91m       ~[0m
+[96msrc/services/email.service.ts[0m:[93m46[0m:[93m6[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m46[0m     });
+[7m  [0m [91m     ~[0m
+[96msrc/services/email.service.ts[0m:[93m57[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m57[0m   }
+[7m  [0m [91m  ~[0m
+[96msrc/services/email.service.ts[0m:[93m58[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m58[0m }
+[7m  [0m [91m~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/email.service.ts[0m:[93m37[0m:[93m9[0m - [91merror[0m[90m TS1136: [0mProperty assignment expected.
+
+[7m37[0m         {
+[7m  [0m [91m        ~[0m
+[96msrc/services/email.service.ts[0m:[93m45[0m:[93m7[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m45[0m       },
+[7m  [0m [91m      ~[0m
+[96msrc/services/email.service.ts[0m:[93m45[0m:[93m8[0m - [91merror[0m[90m TS1068: [0mUnexpected token. A constructor, method, accessor, or property was expected.
+
+[7m45[0m       },
+[7m  [0m [91m       ~[0m
+[96msrc/services/email.service.ts[0m:[93m46[0m:[93m6[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m46[0m     });
+[7m  [0m [91m     ~[0m
+[96msrc/services/email.service.ts[0m:[93m57[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m57[0m   }
+[7m  [0m [91m  ~[0m
+[96msrc/services/email.service.ts[0m:[93m58[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m58[0m }
+[7m  [0m [91m~[0m
+
+    at createTSError (C:\Users\User\OneDrive - University of Bath\Documents\GitHub\mean-stack-starter\server\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (C:\Users\User\OneDrive - University of Bath\Documents\GitHub\mean-stack-starter\server\node_modules\ts-node\src\index.ts:863:19)
+    at C:\Users\User\OneDrive - University of Bath\Documents\GitHub\mean-stack-starter\server\node_modules\ts-node\src\index.ts:1379:34
+    at Object.compile (C:\Users\User\OneDrive - University of Bath\Documents\GitHub\mean-stack-starter\server\node_modules\ts-node\src\index.ts:1458:13)
+    at Module.m._compile (C:\Users\User\OneDrive - University of Bath\Documents\GitHub\mean-stack-starter\server\node_modules\ts-node\src\index.ts:1617:30)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (C:\Users\User\OneDrive - University of Bath\Documents\GitHub\mean-stack-starter\server\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:933:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:774:14)
+    at Module.require (internal/modules/cjs/loader.js:957:19)
