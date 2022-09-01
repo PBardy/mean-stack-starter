@@ -1,11 +1,10 @@
-import { User } from '@/models/user.model';
+import path from 'path';
 import { BaseService } from './base.service';
 import { MAIL_FROM, MAIL_HOST, MAIL_PASS, MAIL_PORT, MAIL_USER } from '@config';
-import { ForgotPasswordEmailDto } from '@/dtos/auth/ForgotPasswordEmail.dto';
-import path from 'path';
+import { ForgotPasswordEmailDto } from '@/dtos/emails/ForgotPasswordEmail.dto';
+import { EmailConfirmationEmailDto } from '@/dtos/emails/EmailConfirmationEmail.dto';
 
 const Email = require('email-templates');
-const NodeMailer = require('nodemailer');
 
 export class EmailService extends BaseService {
   private getEmail() {
@@ -27,6 +26,18 @@ export class EmailService extends BaseService {
     });
   }
 
+  public async setEmailConfirmationEmail(dto: EmailConfirmationEmailDto) {
+    await this.getEmail().send({
+      template: path.join(__dirname, '../emails', 'email-confirmation'),
+      message: {
+        to: dto.user.email,
+      },
+      locals: {
+        name: dto.user.fullName,
+      },
+    });
+  }
+
   public async sendForgotPasswordEmail(dto: ForgotPasswordEmailDto) {
     await this.getEmail().send({
       template: path.join(__dirname, '../emails', 'forgot-password'),
@@ -35,7 +46,7 @@ export class EmailService extends BaseService {
       },
       locals: {
         name: dto.user.fullName,
-        recoveryCode: dto.recoveryCode,
+        recoveryCode: dto.code,
       },
     });
   }

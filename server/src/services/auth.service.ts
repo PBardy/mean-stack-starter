@@ -16,12 +16,12 @@ import { UserService } from './user.service';
 export class AuthService extends BaseService {
   protected userService = new UserService();
 
-  public createToken(user: User): string {
+  public createToken(user: User): TokenData {
     const expiresIn: number = 60 * 60;
     const secretKey: string = SECRET_KEY;
     const dataStoredInToken: DataStoredInToken = { id: user.id };
 
-    return sign(dataStoredInToken, secretKey, { expiresIn });
+    return { token: sign(dataStoredInToken, secretKey, { expiresIn }), expiresIn };
   }
 
   public createCookie(tokenData: TokenData): string {

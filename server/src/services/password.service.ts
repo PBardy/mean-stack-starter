@@ -1,9 +1,11 @@
-import { ForgotPasswordEmailDto } from '@/dtos/auth/ForgotPasswordEmail.dto';
+import { ForgotPasswordEmailDto } from '@/dtos/emails/ForgotPasswordEmail.dto';
 import { ForgotPasswordRequestDto } from '@/dtos/auth/ForgotPasswordRequest.dto';
 import { assertIsNotEmpty, assertModelExists } from '@/utils/asserts';
 import { BaseService } from './base.service';
 import { EmailService } from './email.service';
 import { UserService } from './user.service';
+import { UserDto } from '@/dtos/user/user.dto';
+import { UserShape } from '@/models/user.model';
 
 export class PasswordService extends BaseService {
   protected userService = new UserService();
@@ -19,11 +21,14 @@ export class PasswordService extends BaseService {
     const user = await this.userService.getByEmail(dto.email);
     await assertModelExists(user);
 
-    const recoveryCode = await this.generateRecoveryCode();
+    const code = await this.generateRecoveryCode();
+    const expiry = new Date();
+    expiry.setHours(expiry.getHours() + 2);
 
     const emailDto = new ForgotPasswordEmailDto({
-      user,
-      recoveryCode,
+      code,
+      expiry,
+      user: UserDto.fromModel(user as UserShape),
     });
 
     await this.emailService.sendForgotPasswordEmail(emailDto);
