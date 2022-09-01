@@ -1,4 +1,5 @@
 import { App } from '@/app';
+import { ForgotPasswordRequestDto } from '@/dtos/auth/ForgotPasswordRequest.dto';
 import { SignInRequestDto } from '@/dtos/auth/SignInRequest.dto';
 import { SignUpRequestDto } from '@/dtos/auth/SignUpRequest.dto';
 import { AuthRoute } from '@/routes/auth.route';
@@ -8,7 +9,7 @@ jest.setTimeout(10000);
 
 describe('Auth Tests', () => {
   describe('[POST] /auth/sign-up', () => {
-    it('code: 200, data: a user dto and a token', done => {
+    it('Create a new user and return a user dto and an auth token', done => {
       const dto = SignUpRequestDto.fromJson({
         email: 'test@gmail.com',
         fullName: 'John Doe',
@@ -35,7 +36,7 @@ describe('Auth Tests', () => {
   });
 
   describe('[POST] /auth/sign-in', () => {
-    it('code: 200, data: a user dto and a token', done => {
+    it('Return a user dto and an auth token', done => {
       const dto = SignInRequestDto.fromJson({
         email: 'test@gmail.com',
         password: 'password',
@@ -57,6 +58,19 @@ describe('Auth Tests', () => {
         .catch(err => {
           done(err);
         });
+    });
+  });
+
+  describe('[POST] /auth/forgot-password', () => {
+    it('Should send an email with a recovery code', () => {
+      const dto = ForgotPasswordRequestDto.fromJson({
+        email: 'test@gmail.com',
+      });
+
+      const route = new AuthRoute();
+      const app = new App([route]);
+
+      request(app.getServer()).post(`${route.path}/forgot-password`).send(dto).expect(204);
     });
   });
 });
