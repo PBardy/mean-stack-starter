@@ -5,10 +5,13 @@ import { SignOutRequestDto } from '@/dtos/auth/SignOutRequest.dto';
 import { SignOutResponseDto } from '@/dtos/auth/SignOutResponse.dto';
 import { SignUpRequestDto } from '@/dtos/auth/SignUpRequest.dto';
 import { SignUpResponseDto } from '@/dtos/auth/SignUpResponse.dto';
+import { VerifyEmailRequestDto } from '@/dtos/auth/VerifyEmailRequest.dto';
 import { EmailConfirmationEmailDto } from '@/dtos/emails/EmailConfirmationEmail.dto';
+import { RequestWithUser } from '@/interfaces/auth.interface';
 import { AuthService } from '@/services/auth.service';
 import { EmailService } from '@/services/email.service';
 import { PasswordService } from '@/services/password.service';
+import { VerificationService } from '@/services/verification.service';
 import { NextFunction, Request, Response } from 'express';
 import { BaseController } from './base.controller';
 
@@ -16,6 +19,7 @@ export class AuthController extends BaseController {
   protected authService = new AuthService();
   protected emailService = new EmailService();
   protected passwordService = new PasswordService();
+  protected verificationService = new VerificationService();
 
   public signIn = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -64,6 +68,14 @@ export class AuthController extends BaseController {
       // maybe log potential errors, but never show to client
     } finally {
       res.status(204).send();
+    }
+  };
+
+  public verifyEmail = async (req: RequestWithUser, res: Response, next: NextFunction) => {
+    try {
+      const success = await this.verificationService.verifyEmail(req.body as VerifyEmailRequestDto);
+    } catch (err) {
+      next(err);
     }
   };
 }

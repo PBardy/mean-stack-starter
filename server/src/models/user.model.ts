@@ -12,6 +12,7 @@ export class User extends Model implements IModel, ISoftDeletes, ITimeStamps, IB
   public roleId: number;
   public uuid: string;
   public email: string;
+  public emailVerifiedAt: string;
   public fullName: string;
   public password: string;
   public createdAt: string;

@@ -1,4 +1,5 @@
 import { CreateUserDto } from '@/dtos/user/create-user.dto';
+import { PatchUserDto } from '@/dtos/user/patch-user.dto';
 import { RoleEnum } from '@/enums/role.enum';
 import { User } from '@/models/user.model';
 import { assertIsNotEmpty } from '@/utils/asserts';
@@ -30,6 +31,17 @@ export class UserService extends BaseService {
     const role = await this.roleService.getByTag(RoleEnum.USER);
     const user = await User.query()
       .insertAndFetch({ ...dto, roleId: role.id })
+      .withGraphJoined('role')
+      .skipUndefined();
+
+    return user;
+  }
+
+  public async patchOne(dto: PatchUserDto): Promise<User> {
+    await assertIsNotEmpty(dto);
+
+    const user = await User.query()
+      .updateAndFetch({ ...dto })
       .withGraphJoined('role')
       .skipUndefined();
 
