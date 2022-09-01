@@ -49,6 +49,8 @@ export class App {
   }
 
   private initializeMiddlewares() {
+    this.app.use(express.static('emails/templates'));
+    this.app.set('view engine', 'pug');
     this.app.use(morgan(LOG_FORMAT, { stream }));
     this.app.use(cors({ origin: ORIGIN, credentials: CREDENTIALS }));
     this.app.use(hpp());

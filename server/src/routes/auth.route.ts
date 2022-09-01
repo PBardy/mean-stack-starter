@@ -5,6 +5,7 @@ import validationMiddleware from '@/middlewares/validation.middleware';
 import { SignInRequestDto } from '@/dtos/auth/SignInRequest.dto';
 import { SignOutRequestDto } from '@/dtos/auth/SignOutRequest.dto';
 import { SignUpRequestDto } from '@/dtos/auth/SignUpRequest.dto';
+import { ForgotPasswordRequestDto } from '@/dtos/auth/ForgotPasswordRequest.dto';
 
 export class AuthRoute implements Routes {
   public path = '/api/auth';
@@ -19,5 +20,6 @@ export class AuthRoute implements Routes {
     this.router.post(`${this.path}/sign-in`, validationMiddleware(SignInRequestDto, 'body'), this.controller.signIn);
     this.router.post(`${this.path}/sign-up`, validationMiddleware(SignUpRequestDto, 'body'), this.controller.signUp);
     this.router.post(`${this.path}/sign-out`, validationMiddleware(SignOutRequestDto, 'body'), this.controller.signOut);
+    this.router.post(`${this.path}/forgot-password`, validationMiddleware(ForgotPasswordRequestDto, 'body'), this.controller.forgotPassword);
   }
 }

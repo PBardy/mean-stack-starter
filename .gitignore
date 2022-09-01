@@ -1,0 +1,4 @@
+
+server/.env.test.local
+server/.env.development.local
+*.log
