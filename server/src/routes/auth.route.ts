@@ -7,7 +7,7 @@ import { SignOutRequestDto } from '@/dtos/auth/SignOutRequest.dto';
 import { SignUpRequestDto } from '@/dtos/auth/SignUpRequest.dto';
 
 export class AuthRoute implements Routes {
-  public path = '/auth';
+  public path = '/api/auth';
   public router = Router();
   public controller = new AuthController();
 

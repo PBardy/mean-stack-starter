@@ -1,53 +1,43 @@
 import { CreateUserDto } from '@/dtos/user/create-user.dto';
-import { PermissionEnum } from '@/enums/permission.enum';
+import { RoleEnum } from '@/enums/role.enum';
 import { User } from '@/models/user.model';
-import { assertHasPermission, assertIsNotEmpty, assertModelExists } from '@/utils/asserts';
+import { assertIsNotEmpty } from '@/utils/asserts';
 import { BaseService } from './base.service';
+import { RoleService } from './role.service';
 
 export class UserService extends BaseService {
-  public async getAll(userId: number): Promise<Array<User>> {
-    await assertHasPermission(userId, PermissionEnum.VIEW_USERS);
+  private roleService = new RoleService();
 
+  public async getAll(): Promise<Array<User>> {
     return await User.query().select();
   }
 
-  public async getById(userId: number, id: number): Promise<User> {
-    const user = await User.query().findById(id);
-    await assertModelExists(user);
-
-    const permission = userId === user.id ? PermissionEnum.VIEW_SELF : PermissionEnum.VIEW_USER;
-    await assertHasPermission(userId, permission);
-
-    return user;
+  public async getById(id: number): Promise<User> {
+    return await User.query().findById(id);
   }
 
-  public async getByUuid(userId: number, uuid: string): Promise<User> {
-    const user = await User.query().where('uuid', uuid).first();
-    await assertModelExists(user);
-
-    const permission = userId === user.id ? PermissionEnum.VIEW_SELF : PermissionEnum.VIEW_USER;
-    await assertHasPermission(userId, permission);
-
-    return user;
+  public async getByUuid(uuid: string): Promise<User> {
+    return await User.query().where('uuid', uuid).first();
   }
 
   public async getByEmail(email: string): Promise<User> {
-    return await User.query().where('email', email).first();
+    return await User.query().where('email', email).withGraphJoined('role').skipUndefined().first();
   }
 
   public async createOne(dto: CreateUserDto): Promise<User> {
     await assertIsNotEmpty(dto);
 
-    const user = await User.query().insertAndFetch(dto);
+    const role = await this.roleService.getByTag(RoleEnum.USER);
+    const user = await User.query()
+      .insertAndFetch({ ...dto, roleId: role.id })
+      .withGraphJoined('role')
+      .skipUndefined();
 
     return user;
   }
 
-  public async deleteOne(userId: number, uuid: string): Promise<User> {
-    const user = await this.getByUuid(userId, uuid);
-    const permission = userId === user.id ? PermissionEnum.DELETE_SELF : PermissionEnum.DELETE_USER;
-    await assertHasPermission(userId, permission);
-
+  public async deleteOne(uuid: string): Promise<User> {
+    const user = await this.getByUuid(uuid);
     await user.$query().delete();
 
     return user;

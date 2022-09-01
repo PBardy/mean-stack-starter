@@ -13,10 +13,10 @@ const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFun
       const secretKey: string = SECRET_KEY;
       const verificationResponse = (await verify(Authorization, secretKey)) as DataStoredInToken;
       const userId = verificationResponse.id;
-      const findUser: UserShape = await User.query().findById(userId);
+      const findUser = await User.query().findById(userId).withGraphJoined('role');
 
       if (findUser) {
-        req.user = findUser;
+        req.user = findUser as UserShape;
         next();
       } else {
         next(new HttpException(401, 'Wrong authentication token'));

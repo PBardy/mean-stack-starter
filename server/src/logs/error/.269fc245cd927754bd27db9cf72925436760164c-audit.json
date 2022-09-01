@@ -14,6 +14,16 @@
             "date": 1661676364808,
             "name": "D:\\Programming\\Angular\\mean-starter\\server\\src\\logs\\error\\2022-08-28.log",
             "hash": "f5edb1bdcc9cf1a20aaffc337aba3d6819010ad87baa59c76814f3d39282d34c"
+        },
+        {
+            "date": 1661759011546,
+            "name": "D:\\Programming\\Angular\\mean-starter\\server\\src\\logs\\error\\2022-08-29.log",
+            "hash": "5f772b35209e68aaed7179ac0854524f6cc530cd546059f2bbd8ced31575d3b3"
+        },
+        {
+            "date": 1662019850875,
+            "name": "D:\\Programming\\Angular\\mean-starter\\server\\src\\logs\\error\\2022-09-01.log",
+            "hash": "ca11c74bd1fadda2735fd161a8385ecd13c08ed6332b66c793ffe32ba118bf36"
         }
     ],
     "hashType": "sha256"

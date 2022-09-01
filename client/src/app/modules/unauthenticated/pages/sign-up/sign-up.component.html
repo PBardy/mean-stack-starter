@@ -1,1 +1,67 @@
-<p>sign-up works!</p>
+<form class="flex flex-col p-8 gap-y-8 w-full" [formGroup]="form">
+  <header>
+    <h1 class="text-3xl font-bold">Sign Up</h1>
+  </header>
+  <main class="flex flex-col gap-y-4">
+    <fieldset class="flex flex-col gap-y-1">
+      <label>Full name*</label>
+      <input
+        id="fullname"
+        name="fullname"
+        type="text"
+        autocomplete="name"
+        placeholder="Full name"
+        formControlName="fullName"
+        class="border rounded p-4"
+      />
+    </fieldset>
+    <fieldset class="flex flex-col gap-y-1">
+      <label>Email*</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocapitalize="never"
+        autocomplete="email"
+        placeholder="Email"
+        formControlName="email"
+        class="border rounded p-4"
+      />
+    </fieldset>
+    <fieldset class="flex flex-col gap-y-1">
+      <label>Password*</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Password"
+        formControlName="password"
+        class="border rounded p-4"
+      />
+    </fieldset>
+    <fieldset class="flex flex-col gap-y-1">
+      <label>Repeat password Password*</label>
+      <input
+        id="repeatPassword"
+        name="repeatPassword"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Repeat Password"
+        formControlName="repeatPassword"
+        class="border rounded p-4"
+      />
+    </fieldset>
+  </main>
+  <footer class="flex flex-col items-center gap-y-4">
+    <button mat-ripple class="w-full py-4 px-4 rounded border">
+      <span>Sign Up</span>
+    </button>
+    <p>
+      Already have an account?
+      <a class="transition-all hover:underline" routerLink="/sign-in">
+        <span>Sign in here.</span>
+      </a>
+    </p>
+  </footer>
+</form>

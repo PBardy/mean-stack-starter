@@ -1,10 +1,10 @@
 import { PermissionEnum } from '@/enums/permission.enum';
 import { IModel, ISoftDeletes, ITimeStamps } from '@/interfaces/model.interface';
-import { IProperty } from '@/interfaces/property.interface';
+import { IPermission } from '@/interfaces/property.interface';
 import { randomUUID } from 'crypto';
 import { Model, ModelObject } from 'objection';
 
-export class Permission extends Model implements IModel, ISoftDeletes, ITimeStamps, IProperty {
+export class Permission extends Model implements IModel, ISoftDeletes, ITimeStamps, IPermission {
   public id: number;
   public uuid: string;
   public tag: PermissionEnum;

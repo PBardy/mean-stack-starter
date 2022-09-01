@@ -1,13 +1,15 @@
+import { RoleEnum } from '@/enums/role.enum';
 import { IModel, ISoftDeletes, ITimeStamps } from '@/interfaces/model.interface';
-import { IProperty } from '@/interfaces/property.interface';
+import { IRole } from '@/interfaces/property.interface';
 import { randomUUID } from 'crypto';
 import { Model, ModelObject, RelationMappings } from 'objection';
+import { PermissionGroup } from './permission-group.model';
 import { Permission } from './permission.model';
 
-export class Role extends Model implements IModel, ISoftDeletes, ITimeStamps, IProperty {
+export class Role extends Model implements IModel, ISoftDeletes, ITimeStamps, IRole {
   public id: number;
   public uuid: string;
-  public tag: Uppercase<string>;
+  public tag: RoleEnum;
   public label: string;
   public protected: boolean;
   public description: string;
@@ -21,12 +23,12 @@ export class Role extends Model implements IModel, ISoftDeletes, ITimeStamps, IP
   public static relationMappings: RelationMappings = {
     permissions: {
       modelClass: Permission,
-      relation: Model.HasManyRelation,
+      relation: Model.HasOneThroughRelation,
       join: {
         from: 'roles.id',
         through: {
-          from: 'role_permissions.role_id',
-          to: 'role_permissions.permission_id',
+          from: 'role_permissions.roleId',
+          to: 'role_permissions.permissionId',
         },
         to: 'permissions.id',
       },

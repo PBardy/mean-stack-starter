@@ -1,0 +1,13 @@
+2022-09-01 09:59:13 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 09:59:13 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 09:59:14 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
+2022-09-01 10:02:12 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 10:02:12 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 10:02:13 error: [GET] /users >> StatusCode:: 404, Message:: Authentication token missing
+2022-09-01 10:03:30 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 10:03:30 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 10:03:32 error: [GET] /api/users >> StatusCode:: 404, Message:: Authentication token missing
+2022-09-01 10:06:28 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 10:06:28 error: [POST] /api/auth/sign-in >> StatusCode:: 500, Message:: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+2022-09-01 10:07:20 error: [POST] /api/auth/sign-up >> StatusCode:: 500, Message:: undefined passed as an item in argument #1 for 'whereInComposite' operation. Call skipUndefined() method to ignore the undefined values.
+2022-09-01 10:11:07 error: [POST] /api/auth/sign-up >> StatusCode:: 409, Message:: Model already exists

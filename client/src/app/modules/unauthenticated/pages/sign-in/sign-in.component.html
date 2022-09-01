@@ -1,50 +1,58 @@
-<div class="min-h-screen max-h-screen max-w-screen grid grid-cols-1">
-  <div class="max-w-screen-md w-full self-center justify-self-center">
-    <form class="flex flex-col gap-y-8 border rounded p-8" [formGroup]="form">
-      <header>
-        <h1 class="text-3xl font-bold">Sign In</h1>
-      </header>
-      <main class="flex flex-col gap-y-4">
-        <fieldset class="flex flex-col gap-y-1">
-          <label>Email*</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autocapitalize="never"
-            autocomplete="email"
-            placeholder="Email"
-            formControlName="email"
-            class="border rounded p-4"
-          />
-          <ng-container *ngIf="shouldShowEmailRequired">
-            <mat-error>Email is required</mat-error>
-          </ng-container>
-          <ng-container *ngIf="shouldShowEmailInvalid">
-            <mat-error>Email is invalid</mat-error>
-          </ng-container>
-        </fieldset>
-        <fieldset class="flex flex-col gap-y-1">
-          <label>Password*</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autocomplete="current-password"
-            placeholder="Password"
-            formControlName="password"
-            class="border rounded p-4"
-          />
-          <ng-container *ngIf="shouldShowPasswordRequired">
-            <mat-error>Password is required</mat-error>
-          </ng-container>
-        </fieldset>
-      </main>
-      <footer>
-        <button mat-ripple class="py-2 px-4 rounded border">
-          <span>Sign Up</span>
-        </button>
-      </footer>
-    </form>
-  </div>
-</div>
+<form class="flex flex-col p-8 gap-y-8 w-full" [formGroup]="form">
+  <header>
+    <h1 class="text-3xl font-bold">Sign In</h1>
+  </header>
+  <main class="flex flex-col gap-y-4">
+    <fieldset class="flex flex-col gap-y-1">
+      <label>Email*</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocapitalize="never"
+        autocomplete="email"
+        placeholder="Email"
+        formControlName="email"
+        class="border rounded p-4"
+      />
+      <ng-container *ngIf="shouldShowEmailRequired">
+        <mat-error>Email is required</mat-error>
+      </ng-container>
+      <ng-container *ngIf="shouldShowEmailInvalid">
+        <mat-error>Email is invalid</mat-error>
+      </ng-container>
+    </fieldset>
+    <fieldset class="flex flex-col gap-y-1">
+      <label>Password*</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Password"
+        formControlName="password"
+        class="border rounded p-4"
+      />
+      <ng-container *ngIf="shouldShowPasswordRequired">
+        <mat-error>Password is required</mat-error>
+      </ng-container>
+    </fieldset>
+    <fieldset>
+      <label class="cursor-pointer flex items-center gap-x-2" for="remember">
+        <input id="remember" name="remember" type="checkbox" />
+        <span>Remember me</span>
+      </label>
+    </fieldset>
+  </main>
+  <footer class="flex flex-col items-center gap-y-4">
+    <button mat-ripple class="w-full py-4 px-4 rounded border">
+      <span>Sign In</span>
+    </button>
+    <p>
+      Don't have an account?
+      <a class="transition-all hover:underline" routerLink="/sign-up">
+        <span>Sign up here.</span>
+      </a>
+    </p>
+  </footer>
+</form>

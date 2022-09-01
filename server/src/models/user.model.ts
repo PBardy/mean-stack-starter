@@ -1,7 +1,9 @@
 import { IModel, ISoftDeletes, ITimeStamps } from '@/interfaces/model.interface';
 import { IBaseUser } from '@/interfaces/user.interface';
+import { hash } from 'bcrypt';
 import { randomUUID } from 'crypto';
 import { Model, ModelObject, RelationMappings } from 'objection';
+import { PermissionGroup } from './permission-group.model';
 import { Permission } from './permission.model';
 import { Role } from './role.model';
 
@@ -16,6 +18,8 @@ export class User extends Model implements IModel, ISoftDeletes, ITimeStamps, IB
   public updatedAt: string;
   public deletedAt: string;
 
+  public role?: Role;
+
   public static idColumn = 'id';
   public static tableName = 'users';
 
@@ -24,7 +28,7 @@ export class User extends Model implements IModel, ISoftDeletes, ITimeStamps, IB
       modelClass: Role,
       relation: Model.HasOneRelation,
       join: {
-        from: 'users.role_id',
+        from: 'users.roleId',
         to: 'roles.id',
       },
     },
@@ -34,16 +38,29 @@ export class User extends Model implements IModel, ISoftDeletes, ITimeStamps, IB
       join: {
         from: 'users.id',
         through: {
-          from: 'user_permissions.user_id',
-          to: 'user_permissions.permission_id',
+          from: 'user_permissions.userId',
+          to: 'user_permissions.permissionId',
         },
         to: 'permissions.id',
       },
     },
+    permissionGroups: {
+      modelClass: PermissionGroup,
+      relation: Model.HasManyRelation,
+      join: {
+        from: 'users.id',
+        through: {
+          from: 'user_permission_groups.userId',
+          to: 'user_permission_groups.permissionGroupId',
+        },
+        to: 'permission_groups.id',
+      },
+    },
   };
 
-  public $beforeInsert(): void {
+  public async $beforeInsert(): Promise<void> {
     this.uuid = randomUUID();
+    this.password = await hash(this.password, 10);
     this.createdAt = new Date().toISOString();
     this.updatedAt = new Date().toISOString();
   }

@@ -5,6 +5,7 @@ import { SignOutResponseDto } from '@/dtos/auth/SignOutResponse.dto';
 import { SignUpRequestDto } from '@/dtos/auth/SignUpRequest.dto';
 import { SignUpResponseDto } from '@/dtos/auth/SignUpResponse.dto';
 import { AuthService } from '@/services/auth.service';
+import { logger } from '@/utils/logger';
 import { NextFunction, Request, Response } from 'express';
 import { BaseController } from './base.controller';
 
@@ -14,6 +15,7 @@ export class AuthController extends BaseController {
   public signIn = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { user, token } = await this.authService.signIn(req.body as SignInRequestDto);
+      logger.debug(JSON.stringify(user));
       res.status(200).json({
         data: new SignInResponseDto(user, token),
       });

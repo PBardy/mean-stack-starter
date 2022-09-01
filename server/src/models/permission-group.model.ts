@@ -1,13 +1,14 @@
+import { PermissionGroupEnum } from '@/enums/permission-group.enum';
 import { IModel, ISoftDeletes, ITimeStamps } from '@/interfaces/model.interface';
-import { IProperty } from '@/interfaces/property.interface';
+import { IPermissionGroup } from '@/interfaces/property.interface';
 import { randomUUID } from 'crypto';
 import { Model, ModelObject, RelationMappings } from 'objection';
 import { Permission } from './permission.model';
 
-export class PermissionGroup extends Model implements IModel, ISoftDeletes, ITimeStamps, IProperty {
+export class PermissionGroup extends Model implements IModel, ISoftDeletes, ITimeStamps, IPermissionGroup {
   public id: number;
   public uuid: string;
-  public tag: Uppercase<string>;
+  public tag: PermissionGroupEnum;
   public label: string;
   public description: string;
   public protected: boolean;
@@ -25,8 +26,8 @@ export class PermissionGroup extends Model implements IModel, ISoftDeletes, ITim
       join: {
         from: 'permission_groups.id',
         through: {
-          from: 'permission_group_permissions.permission_group_id',
-          to: 'permission_group_permissions.permission_id',
+          from: 'permission_group_permissions.permissionGroupId',
+          to: 'permission_group_permissions.permissionId',
         },
         to: 'permissions.id',
       },
