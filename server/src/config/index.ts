@@ -20,4 +20,5 @@ export const {
   MAIL_USER,
   MAIL_PASS,
   MAIL_FROM,
+  WEBSITE_URL,
 } = process.env;

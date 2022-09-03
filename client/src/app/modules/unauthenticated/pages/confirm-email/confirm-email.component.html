@@ -1,0 +1,23 @@
+<main class="p-4 flex flex-col gap-y-4">
+  <header>
+    <h2 class="text-3xl font-bold">Confirm email</h2>
+    <p>Click the confirm email button and we'll sign you into your account.</p>
+  </header>
+
+  <footer>
+    <ng-container *ngIf="authState$ | async as authState">
+      <button
+        mat-ripple
+        class="w-full py-4 px-4 rounded border flex items-center justify-center"
+        (click)="onSubmit()"
+      >
+        <ng-container *ngIf="authState.authenticating; else text">
+          <mat-spinner [diameter]="25"></mat-spinner>
+        </ng-container>
+        <ng-template #text>
+          <span>Confirm email</span>
+        </ng-template>
+      </button>
+    </ng-container>
+  </footer>
+</main>

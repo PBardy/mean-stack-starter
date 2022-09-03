@@ -3,4 +3,5 @@ export interface IBaseUser {
   password: string;
   roleId: number;
   fullName: string;
+  emailVerifiedAt: string;
 }

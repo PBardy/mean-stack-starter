@@ -3,7 +3,6 @@ import { BaseService } from './base.service';
 import { MAIL_FROM, MAIL_HOST, MAIL_PASS, MAIL_PORT, MAIL_USER } from '@config';
 import { EmailConfirmationEmailDto } from '@/dtos/emails/EmailConfirmationEmail.dto';
 import { UserRecoveryCodeDto } from '@/dtos/user-recovery-code/user-recovery-code.dto';
-import { logger } from '@/utils/logger';
 
 const Email = require('email-templates');
 
@@ -35,6 +34,7 @@ export class EmailService extends BaseService {
       },
       locals: {
         name: dto.user.fullName,
+        link: dto.toLink(),
       },
     });
   }

@@ -2,7 +2,6 @@ import { Component, HostListener, isDevMode } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { ISignInForm } from 'src/app/interfaces/forms/sign-in-form.interface';
-import { AuthRequests } from 'src/app/interfaces/requests/auth-requests.interface';
 import { IAppState } from 'src/app/interfaces/store/states.interface';
 import { AuthActions } from 'src/app/store/actions/auth.actions';
 
@@ -43,22 +42,13 @@ export class SignInComponent {
     }
   }
 
-  private signIn() {
-    const details = {
-      email: this.form.value.email!,
-      password: this.form.value.password!,
-    };
-
-    this.store.dispatch(AuthActions.signIn(details));
-  }
-
   private signInAsUser() {
     this.form.patchValue({
       email: 'user@gmail.com',
       password: 'password',
     });
 
-    this.signIn();
+    this.onSubmit();
   }
 
   private signInAsAdmin() {
@@ -67,7 +57,7 @@ export class SignInComponent {
       password: 'password',
     });
 
-    this.signIn();
+    this.onSubmit();
   }
 
   public onSubmit() {
@@ -80,6 +70,11 @@ export class SignInComponent {
       // @todo: remember to keep user signed in
     }
 
-    this.signIn();
+    const details = {
+      email: this.form.value.email!,
+      password: this.form.value.password!,
+    };
+
+    this.store.dispatch(AuthActions.signIn(details));
   }
 }

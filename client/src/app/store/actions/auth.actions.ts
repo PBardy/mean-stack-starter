@@ -59,10 +59,57 @@ export namespace AuthActions {
     props<AuthRequests.IResetPassword>()
   );
 
+  export const resetPasswordSuccess = createAction(
+    'auth/reset-password/success'
+  );
+
   export const refreshSession = createAction('auth/refresh-session');
 
   export const forgotPassword = createAction(
     'auth/forgot-password',
     props<AuthRequests.IForgotPassword>()
+  );
+
+  export const forgotPasswordSuccess = createAction(
+    'auth/forgot-password/success'
+  );
+
+  export const resendVerification = createAction(
+    'auth/resend-verification',
+    props<AuthRequests.IForgotPassword>()
+  );
+
+  export const resendVerificationSuccess = createAction(
+    'auth/resend-verification/success'
+  );
+
+  export const recoverAccount = createAction(
+    'auth/recover-account',
+    props<AuthRequests.IRecoverAccount>()
+  );
+
+  export const recoverAccountSuccess = createAction(
+    'auth/recover-account/success',
+    props<AuthResponses.IRecoverAccount>()
+  );
+
+  export const recoverAccountFailure = createAction(
+    'auth/recover-account/failure',
+    props<{ error: HttpErrorResponse }>()
+  );
+
+  export const confirmEmail = createAction(
+    'auth/confirm-email',
+    props<AuthRequests.IConfirmEmail>()
+  );
+
+  export const confirmEmailSuccess = createAction(
+    'auth/confirm-email/success',
+    props<AuthResponses.IConfirmEmail>()
+  );
+
+  export const confirmEmailFailure = createAction(
+    'auth/confirm-email/failure',
+    props<{ error: HttpErrorResponse }>()
   );
 }

@@ -14,4 +14,9 @@ export namespace AuthSelectors {
     selectSelf,
     (state) => state.authenticating
   );
+
+  export const selectSendingVerification = createSelector(
+    selectSelf,
+    (state) => state.sendingVerification
+  );
 }

@@ -1,3 +1,4 @@
+import { WEBSITE_URL } from '@/config';
 import { TokenData } from '@/interfaces/auth.interface';
 import { IsObject } from 'class-validator';
 import { BaseDto } from '../base.dto';
@@ -20,5 +21,13 @@ export class EmailConfirmationEmailDto extends BaseDto {
 
     this.user = user;
     this.token = token;
+  }
+
+  public toLink(): string {
+    const url = new URL(`${WEBSITE_URL}/confirm-email`);
+    url.searchParams.set('email', this.user.email);
+    url.searchParams.set('token', this.token.token);
+
+    return url.toString();
   }
 }

@@ -28,4 +28,14 @@ export namespace AuthRequests {
   export interface IForgotPassword {
     email: string;
   }
+
+  export interface IRecoverAccount {
+    code: string;
+    email: string;
+  }
+
+  export interface IConfirmEmail {
+    email: string;
+    token: string;
+  }
 }

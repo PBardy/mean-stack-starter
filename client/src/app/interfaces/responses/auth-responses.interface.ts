@@ -20,4 +20,13 @@ export namespace AuthResponses {
   export interface IResetPassword {}
 
   export interface IRefreshSession {}
+
+  export interface IRecoverAccount {
+    token: string;
+  }
+
+  export interface IConfirmEmail {
+    user: IUser;
+    token: string;
+  }
 }
