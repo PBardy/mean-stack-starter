@@ -3,12 +3,17 @@ import { BaseDto } from '../base.dto';
 
 export class ForgotPasswordRequestDto extends BaseDto {
   @IsEmail()
-  public email: string;
+  public readonly email: string;
+
+  public constructor(email: string) {
+    super();
+
+    this.email = email;
+  }
 
   public static fromJson(json: Record<string, any>): ForgotPasswordRequestDto {
-    const dto = new ForgotPasswordRequestDto();
-    dto.email = json['email'];
+    const email = json['email'];
 
-    return dto;
+    return new ForgotPasswordRequestDto(email);
   }
 }

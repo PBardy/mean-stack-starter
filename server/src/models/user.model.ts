@@ -66,8 +66,9 @@ export class User extends Model implements IModel, ISoftDeletes, ITimeStamps, IB
     this.updatedAt = new Date().toISOString();
   }
 
-  public $beforeUpdate(): void {
+  public async $beforeUpdate(): Promise<void> {
     this.updatedAt = new Date().toISOString();
+    this.password = await hash(this.password, 10);
   }
 }
 

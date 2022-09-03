@@ -11,9 +11,7 @@ import { AuthSelectors } from 'src/app/store/selectors/auth.selectors';
   styles: [],
 })
 export class ForgotPasswordComponent implements OnInit {
-  public sendingVerification$ = this.store.select(
-    AuthSelectors.selectSendingVerification
-  );
+  public authState$ = this.store.select(AuthSelectors.selectSelf);
 
   public form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,7 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
   @HostListener('document:keydown', ['$event'])
   public onKeyDown(event: KeyboardEvent): void {
     if (isDevMode()) {
-      const key = event.key.toLowerCase();
+      const key = event.key?.toLowerCase();
       switch (key) {
         case '`':
           this.runTestCase();

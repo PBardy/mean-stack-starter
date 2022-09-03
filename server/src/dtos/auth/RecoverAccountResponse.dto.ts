@@ -5,10 +5,9 @@ export class RecoverAccountResponseDto extends BaseDto {
   @IsString()
   public token: string;
 
-  public static fromJson(json: Record<string, any>): RecoverAccountResponseDto {
-    const dto = new RecoverAccountResponseDto();
-    dto.token = json['token'];
+  public constructor(token: string) {
+    super();
 
-    return dto;
+    this.token = token;
   }
 }

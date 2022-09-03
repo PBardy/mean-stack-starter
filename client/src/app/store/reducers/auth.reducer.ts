@@ -63,5 +63,8 @@ export const authReducer = createReducer(
   }),
   on(AuthActions.recoverAccountSuccess, (state, action) => {
     return { ...state, token: action.token, authenticating: false };
+  }),
+  on(AuthActions.recoverAccountFailure, (state, action) => {
+    return { ...state, error: action.error, authenticating: false };
   })
 );

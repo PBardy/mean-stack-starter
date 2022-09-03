@@ -1,6 +1,8 @@
 import { ForgotPasswordRequestDto } from '@/dtos/auth/ForgotPasswordRequest.dto';
 import { RecoverAccountRequestDto } from '@/dtos/auth/RecoverAccountRequest.dto';
 import { RecoverAccountResponseDto } from '@/dtos/auth/RecoverAccountResponse.dto';
+import { ResetPasswordRequestDto } from '@/dtos/auth/ResetPasswordRequest.dto';
+import { ResetPasswordResponseDto } from '@/dtos/auth/ResetPasswordResponse.dto';
 import { SignInRequestDto } from '@/dtos/auth/SignInRequest.dto';
 import { SignInResponseDto } from '@/dtos/auth/SignInResponse.dto';
 import { SignOutRequestDto } from '@/dtos/auth/SignOutRequest.dto';
@@ -10,11 +12,14 @@ import { SignUpResponseDto } from '@/dtos/auth/SignUpResponse.dto';
 import { VerifyEmailRequestDto } from '@/dtos/auth/VerifyEmailRequest.dto';
 import { VerifyEmailResponseDto } from '@/dtos/auth/VerifyEmailResponse.dto';
 import { EmailConfirmationEmailDto } from '@/dtos/emails/EmailConfirmationEmail.dto';
+import { UserDto } from '@/dtos/user/user.dto';
 import { RequestWithUser } from '@/interfaces/auth.interface';
+import { UserShape } from '@/models/user.model';
 import { AuthService } from '@/services/auth.service';
 import { EmailService } from '@/services/email.service';
 import { PasswordService } from '@/services/password.service';
 import { VerificationService } from '@/services/verification.service';
+import { logger } from '@/utils/logger';
 import { NextFunction, Request, Response } from 'express';
 import { BaseController } from './base.controller';
 
@@ -90,7 +95,24 @@ export class AuthController extends BaseController {
       const user = await this.passwordService.recoverAccount(req.body as RecoverAccountRequestDto);
       const { token } = this.authService.createToken(user);
       res.status(200).json({
-        data: RecoverAccountResponseDto.fromJson({ token }),
+        data: new RecoverAccountResponseDto(token),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public resetPassword = async (req: RequestWithUser, res: Response, next: NextFunction) => {
+    try {
+      const userId = Number(req.user.id);
+      const dto = req.body as ResetPasswordRequestDto;
+      const user = await this.passwordService.resetPassword(userId, dto);
+      const { token } = this.authService.createToken(user);
+      res.status(200).json({
+        data: new ResetPasswordResponseDto({
+          user: UserDto.fromModel(user as UserShape),
+          token,
+        }),
       });
     } catch (err) {
       next(err);

@@ -3,16 +3,22 @@ import { BaseDto } from '../base.dto';
 
 export class SignInRequestDto extends BaseDto {
   @IsEmail()
-  public email: string;
+  public readonly email: string;
 
   @IsString()
-  public password: string;
+  public readonly password: string;
+
+  public constructor(email: string, password: string) {
+    super();
+
+    this.email = email;
+    this.password = password;
+  }
 
   public static fromJson(json: Record<string, any>): SignInRequestDto {
-    const dto = new SignInRequestDto();
-    dto.email = json['email'];
-    dto.password = json['password'];
+    const email = json['email'];
+    const password = json['password'];
 
-    return dto;
+    return new SignInRequestDto(email, password);
   }
 }

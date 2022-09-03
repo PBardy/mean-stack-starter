@@ -92,4 +92,9 @@ export namespace AuthActions {
     'auth/recover-account/success',
     props<AuthResponses.IRecoverAccount>()
   );
+
+  export const recoverAccountFailure = createAction(
+    'auth/recover-account/failure',
+    props<{ error: HttpErrorResponse }>()
+  );
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, EMPTY, map, tap, mergeMap } from 'rxjs';
+import { catchError, EMPTY, map, tap, mergeMap, of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthActions } from '../actions/auth.actions';
 
@@ -72,6 +72,21 @@ export class AuthEffects {
             this.router.navigate(['/reset-password']);
           }),
           map((res) => AuthActions.recoverAccountSuccess(res.data)),
+          catchError((err) => of(AuthActions.recoverAccountFailure(err)))
+        )
+      )
+    )
+  );
+
+  public readonly resetPassword$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.resetPassword),
+      mergeMap(({ type, ...payload }) =>
+        this.authService.resetPassword(payload).pipe(
+          tap(() => {
+            this.router.navigate(['/sign-in']);
+          }),
+          map(() => AuthActions.resetPasswordSuccess()),
           catchError(() => EMPTY)
         )
       )

@@ -14,7 +14,7 @@ export class UserService extends BaseService {
   }
 
   public async getById(id: number): Promise<User> {
-    return await User.query().findById(id);
+    return await User.query().findById(id).withGraphJoined('role').skipUndefined();
   }
 
   public async getByUuid(uuid: string): Promise<User> {

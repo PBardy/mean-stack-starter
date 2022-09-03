@@ -8,11 +8,22 @@ import { UserRecoveryCodeDto } from '@/dtos/user-recovery-code/user-recovery-cod
 import { UserRecoveryCodeShape } from '@/models/user-recovery-code.model';
 import { RecoverAccountRequestDto } from '@/dtos/auth/RecoverAccountRequest.dto';
 import { User } from '@/models/user.model';
+import { ResetPasswordRequestDto } from '@/dtos/auth/ResetPasswordRequest.dto';
 
 export class PasswordService extends BaseService {
   protected userService = new UserService();
   protected emailService = new EmailService();
   protected userRecoveryCodeService = new UserRecoveryCodeService();
+
+  public async resetPassword(userId: number, dto: ResetPasswordRequestDto): Promise<User> {
+    await assertIsNotEmpty(dto);
+
+    const user = await this.userService.getById(userId);
+    await assertModelExists(user);
+    await user.$query().update({ password: dto.newPassword });
+
+    return user;
+  }
 
   public async forgotPassword(dto: ForgotPasswordRequestDto): Promise<void> {
     await assertIsNotEmpty(dto);
