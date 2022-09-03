@@ -22,20 +22,10 @@ export const authReducer = createReducer(
     return { ...state, authenticating: true, err: null };
   }),
   on(AuthActions.signInSuccess, (state, { user, token }) => {
-    return {
-      ...state,
-      user,
-      token,
-      authenticating: false,
-    };
+    return { ...state, user, token, authenticating: false };
   }),
   on(AuthActions.signUpSuccess, (state, { user, token }) => {
-    return {
-      ...state,
-      user,
-      token,
-      authenticating: false,
-    };
+    return { ...state, user, token, authenticating: false };
   }),
   on(AuthActions.signInFailure, (state, { err }) => {
     return { ...state, err, authenticating: false };
@@ -66,5 +56,14 @@ export const authReducer = createReducer(
   }),
   on(AuthActions.recoverAccountFailure, (state, action) => {
     return { ...state, error: action.error, authenticating: false };
+  }),
+  on(AuthActions.confirmEmail, (state, action) => {
+    return { ...state, token: action.token, authenticating: true };
+  }),
+  on(AuthActions.confirmEmailFailure, (state, action) => {
+    return { ...state, error: action.error, authenticating: false };
+  }),
+  on(AuthActions.confirmEmailSuccess, (state, { user, token }) => {
+    return { ...state, user, token, authenticating: false };
   })
 );

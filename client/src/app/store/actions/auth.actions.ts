@@ -97,4 +97,19 @@ export namespace AuthActions {
     'auth/recover-account/failure',
     props<{ error: HttpErrorResponse }>()
   );
+
+  export const confirmEmail = createAction(
+    'auth/confirm-email',
+    props<AuthRequests.IConfirmEmail>()
+  );
+
+  export const confirmEmailSuccess = createAction(
+    'auth/confirm-email/success',
+    props<AuthResponses.IConfirmEmail>()
+  );
+
+  export const confirmEmailFailure = createAction(
+    'auth/confirm-email/failure',
+    props<{ error: HttpErrorResponse }>()
+  );
 }

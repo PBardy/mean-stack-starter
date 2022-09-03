@@ -93,6 +93,18 @@ export class AuthEffects {
     )
   );
 
+  public readonly confirmEmail$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.confirmEmail),
+      mergeMap(({ type, ...payload }) =>
+        this.authService.confirmEmail(payload).pipe(
+          map((res) => AuthActions.confirmEmailSuccess(res.data)),
+          catchError((err) => of(AuthActions.confirmEmailFailure(err)))
+        )
+      )
+    )
+  );
+
   public constructor(
     private readonly actions$: Actions,
     private readonly authService: AuthService,

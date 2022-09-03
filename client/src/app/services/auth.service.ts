@@ -44,4 +44,8 @@ export class AuthService extends ApiService {
   public refreshSession(payload: AuthRequests.IRefreshSession) {
     return this.http.post('/api/auth/refresh-session', payload);
   }
+
+  public confirmEmail(payload: AuthRequests.IConfirmEmail) {
+    return this.http.post<IApiResponse<AuthResponses.IConfirmEmail>>('/api/auth/verify-email', payload);
+  }
 }

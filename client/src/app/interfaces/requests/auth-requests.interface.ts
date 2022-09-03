@@ -33,4 +33,9 @@ export namespace AuthRequests {
     code: string;
     email: string;
   }
+
+  export interface IConfirmEmail {
+    email: string;
+    token: string;
+  }
 }

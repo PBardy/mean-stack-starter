@@ -9,6 +9,8 @@ import { ForgotPasswordRequestDto } from '@/dtos/auth/ForgotPasswordRequest.dto'
 import { RecoverAccountRequestDto } from '@/dtos/auth/RecoverAccountRequest.dto';
 import { ResetPasswordRequestDto } from '@/dtos/auth/ResetPasswordRequest.dto';
 import authMiddleware from '@/middlewares/auth.middleware';
+import { EmailConfirmationEmailDto } from '@/dtos/emails/EmailConfirmationEmail.dto';
+import { VerifyEmailRequestDto } from '@/dtos/auth/VerifyEmailRequest.dto';
 
 export class AuthRoute implements Routes {
   public path = '/api/auth';
@@ -29,6 +31,7 @@ export class AuthRoute implements Routes {
       validationMiddleware(ResetPasswordRequestDto, 'body'),
       this.controller.resetPassword,
     );
+    this.router.post(`${this.path}/verify-email`, authMiddleware, validationMiddleware(VerifyEmailRequestDto, 'body'), this.controller.verifyEmail);
     this.router.post(`${this.path}/recover-account`, validationMiddleware(RecoverAccountRequestDto, 'body'), this.controller.recoverAccount);
     this.router.post(`${this.path}/forgot-password`, validationMiddleware(ForgotPasswordRequestDto, 'body'), this.controller.forgotPassword);
   }
