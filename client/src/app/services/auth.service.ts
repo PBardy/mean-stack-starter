@@ -25,6 +25,10 @@ export class AuthService extends ApiService {
     return this.http.post<IApiResponse<AuthResponses.ISignOut>>('/api/auth/sign-out', payload);
   }
 
+  public recoverAccount(payload: AuthRequests.IRecoverAccount) {
+    return this.http.post<IApiResponse<AuthResponses.IRecoverAccount>>('/api/auth/recover-account', payload);
+  }
+
   public forgotPassword(payload: AuthRequests.IForgotPassword) {
     return this.http.post('/api/auth/forgot-password', payload);
   }

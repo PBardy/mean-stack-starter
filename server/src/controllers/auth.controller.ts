@@ -1,4 +1,6 @@
 import { ForgotPasswordRequestDto } from '@/dtos/auth/ForgotPasswordRequest.dto';
+import { RecoverAccountRequestDto } from '@/dtos/auth/RecoverAccountRequest.dto';
+import { RecoverAccountResponseDto } from '@/dtos/auth/RecoverAccountResponse.dto';
 import { SignInRequestDto } from '@/dtos/auth/SignInRequest.dto';
 import { SignInResponseDto } from '@/dtos/auth/SignInResponse.dto';
 import { SignOutRequestDto } from '@/dtos/auth/SignOutRequest.dto';
@@ -6,6 +8,7 @@ import { SignOutResponseDto } from '@/dtos/auth/SignOutResponse.dto';
 import { SignUpRequestDto } from '@/dtos/auth/SignUpRequest.dto';
 import { SignUpResponseDto } from '@/dtos/auth/SignUpResponse.dto';
 import { VerifyEmailRequestDto } from '@/dtos/auth/VerifyEmailRequest.dto';
+import { VerifyEmailResponseDto } from '@/dtos/auth/VerifyEmailResponse.dto';
 import { EmailConfirmationEmailDto } from '@/dtos/emails/EmailConfirmationEmail.dto';
 import { RequestWithUser } from '@/interfaces/auth.interface';
 import { AuthService } from '@/services/auth.service';
@@ -74,6 +77,21 @@ export class AuthController extends BaseController {
   public verifyEmail = async (req: RequestWithUser, res: Response, next: NextFunction) => {
     try {
       const success = await this.verificationService.verifyEmail(req.body as VerifyEmailRequestDto);
+      res.status(200).json({
+        data: VerifyEmailResponseDto.fromJson({ success }),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public recoverAccount = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const user = await this.passwordService.recoverAccount(req.body as RecoverAccountRequestDto);
+      const { token } = this.authService.createToken(user);
+      res.status(200).json({
+        data: RecoverAccountResponseDto.fromJson({ token }),
+      });
     } catch (err) {
       next(err);
     }

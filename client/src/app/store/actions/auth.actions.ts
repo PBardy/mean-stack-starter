@@ -59,10 +59,37 @@ export namespace AuthActions {
     props<AuthRequests.IResetPassword>()
   );
 
+  export const resetPasswordSuccess = createAction(
+    'auth/reset-password/success'
+  );
+
   export const refreshSession = createAction('auth/refresh-session');
 
   export const forgotPassword = createAction(
     'auth/forgot-password',
     props<AuthRequests.IForgotPassword>()
+  );
+
+  export const forgotPasswordSuccess = createAction(
+    'auth/forgot-password/success'
+  );
+
+  export const resendVerification = createAction(
+    'auth/resend-verification',
+    props<AuthRequests.IForgotPassword>()
+  );
+
+  export const resendVerificationSuccess = createAction(
+    'auth/resend-verification/success'
+  );
+
+  export const recoverAccount = createAction(
+    'auth/recover-account',
+    props<AuthRequests.IRecoverAccount>()
+  );
+
+  export const recoverAccountSuccess = createAction(
+    'auth/recover-account/success',
+    props<AuthResponses.IRecoverAccount>()
   );
 }

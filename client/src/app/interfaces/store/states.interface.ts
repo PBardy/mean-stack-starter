@@ -6,6 +6,7 @@ export interface IAuthState {
   user: IUser | null;
   token: string | null;
   authenticating: boolean;
+  sendingVerification: boolean;
 }
 
 export interface IAppState {

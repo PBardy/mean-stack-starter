@@ -7,6 +7,7 @@ export const initialAuthState: IAuthState = {
   user: null,
   token: null,
   authenticating: false,
+  sendingVerification: false,
 };
 
 export const authReducer = createReducer(
@@ -44,5 +45,23 @@ export const authReducer = createReducer(
   }),
   on(AuthActions.signOutFailure, (state, { err }) => {
     return { ...state, err, authenticating: false };
+  }),
+  on(AuthActions.forgotPassword, (state) => {
+    return { ...state, sendingVerification: true };
+  }),
+  on(AuthActions.resendVerification, (state) => {
+    return { ...state, sendingVerification: true };
+  }),
+  on(AuthActions.forgotPasswordSuccess, (state) => {
+    return { ...state, sendingVerification: false };
+  }),
+  on(AuthActions.resendVerificationSuccess, (state) => {
+    return { ...state, sendingVerification: false };
+  }),
+  on(AuthActions.recoverAccount, (state) => {
+    return { ...state, authenticating: true };
+  }),
+  on(AuthActions.recoverAccountSuccess, (state, action) => {
+    return { ...state, token: action.token, authenticating: false };
   })
 );
