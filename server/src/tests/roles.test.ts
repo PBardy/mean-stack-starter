@@ -12,6 +12,10 @@ describe('Roles Tests', () => {
   });
 
   describe('[GET] /roles/:uuid', () => {
+    it('Should return a 404 response', done => {
+      done();
+    });
+
     it('code: 200, data: a role dto', done => {
       done();
     });

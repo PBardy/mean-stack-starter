@@ -6,6 +6,10 @@ afterAll(() => {
 
 describe('Permission Tests', () => {
   describe('[GET] /permissions', () => {
+    it('Should return a 404 response', done => {
+      done();
+    });
+
     it('code: 200, data: an array of permission dtos', done => {
       done();
     });

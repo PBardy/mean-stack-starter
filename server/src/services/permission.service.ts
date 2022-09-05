@@ -1,36 +1,20 @@
 import { CreatePermissionDto } from '@/dtos/permission/create-permission.dto';
 import { PatchPermissionDto } from '@/dtos/permission/patch-permission.dto';
 import { UpdatePermissionDto } from '@/dtos/permission/update-permission.dto';
-import { PermissionEnum } from '@/enums/permission.enum';
 import { Permission } from '@/models/permission.model';
-import { assertHasPermission, assertModelExists } from '@/utils/asserts';
 import { BaseService } from './base.service';
 
 export class PermissionService extends BaseService {
-  public async getAll(userId: number): Promise<Permission[]> {
-    await assertHasPermission(userId, PermissionEnum.VIEW_PERMISSIONS);
-
-    const permissions = await Permission.query().select();
-
-    return permissions;
+  public async getAll(): Promise<Permission[]> {
+    return await Permission.query().select();
   }
 
-  public async getById(userId: number, id: number): Promise<Permission> {
-    await assertHasPermission(userId, PermissionEnum.VIEW_PERMISSIONS);
-
-    const permission = await Permission.query().findById(id);
-    await assertModelExists(permission);
-
-    return permission;
+  public async getById(id: number): Promise<Permission> {
+    return await Permission.query().findById(id);
   }
 
-  public async getByUuid(userId: number, uuid: string): Promise<Permission> {
-    await assertHasPermission(userId, PermissionEnum.VIEW_PERMISSIONS);
-
-    const permission = await Permission.query().where('uuid', uuid).first();
-    await assertModelExists(permission);
-
-    return permission;
+  public async getByUuid(uuid: string): Promise<Permission> {
+    return await Permission.query().where('uuid', uuid).first();
   }
 
   public async createOne(userId: number, dto: CreatePermissionDto): Promise<Permission> {

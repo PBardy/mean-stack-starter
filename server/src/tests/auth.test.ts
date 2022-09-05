@@ -113,12 +113,12 @@ describe('Auth Tests', () => {
         token: '',
       });
 
-      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send(dto);
+      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send(dto).set('Authorization', 'Bearer test-auth-token');
       expect(res.statusCode).toBe(200);
     });
 
     it('Should respond with 422 as the request is invalid', async () => {
-      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send({});
+      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send({}).set('Authorization', 'Bearer test-auth-token');
       expect(res.statusCode).toBe(422);
     });
 
@@ -128,7 +128,7 @@ describe('Auth Tests', () => {
         token: '',
       });
 
-      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send(dto);
+      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send(dto).set('Authorization', 'Bearer test-auth-token');
       expect(res.statusCode).toBe(401);
     });
 
@@ -138,7 +138,7 @@ describe('Auth Tests', () => {
         token: '',
       });
 
-      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send(dto);
+      const res = await request(app.getServer()).post(`${route.path}/verify-email`).send(dto).set('Authorization', 'Bearer test-auth-token');
       expect(res.statusCode).toBe(403);
     });
   });

@@ -12,6 +12,7 @@ export class PermissionGroupsRoute implements Routes {
   }
 
   private initializeRoutes(): void {
-    return;
+    this.router.get(`${this.path}`, this.controller.getAll);
+    this.router.get(`${this.path}/:uuid`, this.controller.getOne);
   }
 }
